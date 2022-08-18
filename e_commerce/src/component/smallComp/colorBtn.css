@@ -1,0 +1,27 @@
+.colorBtn{
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 0 15px;
+    position: relative;
+    padding: 0 1px;
+    transition: .5s;
+}
+.colorBtn::after{
+    background-color: var(--white);
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    transition: .5s;
+}
+.colorBtn:hover::after{
+    width: 100%;
+}
+.active{
+    color: var(--red);
+}
+.active::after{
+    width: 100%;
+}
