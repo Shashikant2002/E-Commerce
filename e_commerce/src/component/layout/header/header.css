@@ -3,6 +3,7 @@
     width: 100%;
     float: left;
     position: fixed;
+    z-index: 99999999999999999999999;
 }
 
 .header .burger {
@@ -11,17 +12,17 @@
 }
 
 .header .burger span {
-    background-color: var(--darkGray);
+    background-color: var(--white);
     width: 100%;
     height: 3px;
     display: block;
     margin: 9px 0;
     transition: .5s;
-    z-index: 9;
+    z-index: 9999;
 }
 
 .close span {
-    background: var(--white) !important;
+    background: var(--darkGray) !important;
 }
 
 .close span:nth-child(1) {
@@ -57,7 +58,7 @@
 }
 
 .header .navbar div {
-    border-right: 1px solid var(--lightGray);
+    border-right: 1px solid var(--darkGray);
     text-align: center;
     width: 100%;
     height: 100%;
@@ -89,7 +90,7 @@
 }
 
 .header .navbar div {
-    background: var(--darkGray);
+    background: var(--white);
     min-width: 200px;
     width: 100%;
 }

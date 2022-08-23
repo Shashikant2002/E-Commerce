@@ -1,12 +1,15 @@
 import React from "react";
 import "./colorBtn.css";
+import {
+  Link
+} from "react-router-dom";
 
 const ColorBtn = (prop) => {
   return (
     <>
-      <a className="colorBtn" href={prop.path}>
+      <Link className="colorBtn" to={prop.path}>
         {prop.name}
-      </a>
+      </Link>
     </>
   );
 };

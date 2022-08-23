@@ -1,13 +1,13 @@
 .colorBtn{
     font-size: 1.5rem;
-    color: var(--white);
+    color: var(--darkGray);
     margin: 0 15px;
     position: relative;
     padding: 0 1px;
     transition: .5s;
 }
 .colorBtn::after{
-    background-color: var(--white);
+    background-color: var(--darkGray);
     content: "";
     position: absolute;
     left: 0;

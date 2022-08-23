@@ -15,7 +15,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
 // get All Product
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-  const resultPerPage = 5;
+  const resultPerPage = 8;
   const productCount = await Product.countDocuments();
   const apiFeatures = new ApiFeatures(Product.find(), req.query)
     .search()
@@ -130,12 +130,12 @@ exports.deleteReviews = catchAsyncErrors(async (req, res, next) => {
   if (!product) {
     return next(new ErrorHandeler("Product Not Found", 404));
   }
-  const review = product.reviews.filter((rev) => 
-  rev._id.toString() !== req.query.id.toString()
+  const review = product.reviews.filter(
+    (rev) => rev._id.toString() !== req.query.id.toString()
   );
 
   let avg = 0;
-  review.forEach((rev) => { 
+  review.forEach((rev) => {
     avg += rev.rating;
   });
   const rating = avg / review.length;
@@ -146,12 +146,12 @@ exports.deleteReviews = catchAsyncErrors(async (req, res, next) => {
     {
       reviews: review,
       rating: rating,
-      numberOfReviews: numOfReviews
+      numberOfReviews: numOfReviews,
     },
     {
       new: true,
       runValidators: true,
-      useFindAndModify: false
+      useFindAndModify: false,
     }
   );
 
