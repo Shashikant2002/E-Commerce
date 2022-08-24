@@ -8,7 +8,6 @@ import {
 
 export const getProduct = () => async (dispatch) => {
   try {
-    console.log("hello");
     dispatch({ type: ALL_RPODUCT_REQUEST });
     const { data } = await axios.get("/api/v1/products");
     dispatch({

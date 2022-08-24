@@ -5,20 +5,20 @@ import {
   CLEAR_ERRORS,
 } from "../constants/productConstants";
 
-export const productReducer = async (state = { products: [] }, action) => {
+export const productReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case ALL_RPODUCT_REQUEST:
       return {
         loading: true,
-        product: [],
+        products: [],
         productsCount: 0,
       };
 
     case ALL_RPODUCT_SUCCESS:
       return {
         loading: false,
-        products: action.products,
-        productsCount: action.products.productsCount,
+        products: action.payload.allProd,
+        productsCount: action.payload.productCount,
       };
 
     case ALL_RPODUCT_FAIL:
