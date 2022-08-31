@@ -1,15 +1,23 @@
 import React from "react";
 import "./colorBtn.css";
 import {
-  Link
+  NavLink
 } from "react-router-dom";
 
 const ColorBtn = (prop) => {
+  const closeMenu = () => {
+    console.log("hell")
+    const burger = document.getElementById("burger");
+    burger.classList.remove("close");
+
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.remove("mainHeaderActive");
+  };
   return (
     <>
-      <Link className="colorBtn" to={prop.path}>
+      <NavLink onClick={() => closeMenu()} className="colorBtn navLink" to={prop.path}>
         {prop.name}
-      </Link>
+      </NavLink>
     </>
   );
 };

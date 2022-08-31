@@ -13,6 +13,7 @@ const Home = () => {
   const { loading, error, products, productsCount } = useSelector(
     (state) => state.products
   );
+  console.log(error, productsCount);
 
   useEffect(() => {
     dispatch(getProduct());
