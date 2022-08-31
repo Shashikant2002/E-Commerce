@@ -10,15 +10,15 @@ const options = {
   size: window.innerWidth < 600 ? 20 : 25,
 };
 
-const Product = ({ product }) => {
+const Products= ({ product }) => {
   return (
     <>
-      <Link className="productCard" to={product._id}>
-        <img src={process.env.PUBLIC_URL + "assets/img/tshirt.jpg"} alt={product.name} />
+      <Link className="productCard" to={`/product/${product._id}`}>
+        <img src={`${process.env.PUBLIC_URL}${product.image[0].url}`} alt={product.name} />
         <h3>{product.name}</h3>
         <div className="review">
-          <ReactStart {...options} value = {product.rating} />
-          <span>({product.reviews.length} Reviews)</span>
+          <ReactStart {...options} value = {product.ratings} />
+          <span>({product.numberOfReviews} Reviews)</span>
         </div>
         <h4>${product.price}</h4>
       </Link>
@@ -26,4 +26,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default Products;

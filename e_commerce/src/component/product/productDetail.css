@@ -1,0 +1,21 @@
+.productDetails{
+    padding: 100px 0;
+    width: 100%;
+    float: left;
+}
+.productDetails .container{
+    display: flex;
+    justify-content: space-between;
+}
+.productDetails .image{
+    width: 40%;
+    margin-right: 30px;
+    border: 1px solid red;
+}
+.productDetails .image img{
+    width: 100%;
+}
+.productDetails .content{
+    border: 1px solid red;
+    width: 60%;
+}

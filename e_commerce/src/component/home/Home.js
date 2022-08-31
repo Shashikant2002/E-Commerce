@@ -5,13 +5,8 @@ import Product from "./Product";
 import MetaData from "../layout/MetaData";
 import { getProduct } from "../../actions/priductAction";
 import { useSelector, useDispatch } from "react-redux";
-
-const product = {
-  name: "Blue Tshirt",
-  img: [{ url: process.env.PUBLIC_URL + "assets/img/tshirt.jpg" }],
-  price: "$3000",
-  _id: "shashikant",
-};
+import Loading from "../layout/loading/Loading";
+// import Alert from "../layout/alert/Alert";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,27 +18,46 @@ const Home = () => {
     dispatch(getProduct());
   }, [dispatch]);
 
+  // console.log(error)
+  // console.log(productsCount)
+  // useEffect(() => {
+  //   if (error) {
+  //     const alert = () => {
+  //       return true;
+  //     };
+  //   }
+  // }, [dispatch, error]);
+
   return (
     <>
-      <MetaData title="E-Commerce" />
-      <div className="banner">
-        <p>Welcome to Ecommerce</p>
-        <h1>FIND AMAZING PRODUCT BELOW</h1>
-        <a href="#productFeatured">
-          <button>
-            Scroll <CgMouse />
-          </button>
-        </a>
-      </div>
-      <div className="product" id="productFeatured">
-        <div className="container">
-          <h2>Featured Product</h2>
-          <div className="allProduct">
-            {products &&
-              products.map((product) => <Product product={product} />)}
+      {/* <Alert show={alert} error={error} /> */}
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <MetaData title="E-Commerce" />
+          <div className="banner">
+            <p>Welcome to Ecommerce</p>
+            <h1>FIND AMAZING PRODUCT BELOW</h1>
+            <a href="#productFeatured">
+              <button>
+                Scroll <CgMouse />
+              </button>
+            </a>
           </div>
-        </div>
-      </div>
+          <div className="product" id="productFeatured">
+            <div className="container">
+              <h2>Featured Product</h2>
+              <div className="allProduct">
+                {products &&
+                  products.map((product) => (
+                    <Product key={product._id} product={product} />
+                  ))}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./component/layout/header/Header";
 import Footer from "./component/layout/footer/Footer";
 import Home from "./component/home/Home";
+import PrpductSingle from "./component/product/PrpductSingle";
 
 function App() {
   useEffect(() => {
@@ -17,9 +18,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <Header /> 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<PrpductSingle />} />
         </Routes>
         <Footer />
       </BrowserRouter>

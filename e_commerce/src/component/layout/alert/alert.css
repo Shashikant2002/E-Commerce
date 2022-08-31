@@ -1,0 +1,13 @@
+.alert{
+    position: absolute;
+    z-index: 99999999999;
+    background-color: var(--white);
+    padding: 10px 20px;
+    transform: translateX(-50%);
+    top: 10vh;
+    right: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
