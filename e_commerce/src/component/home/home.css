@@ -90,3 +90,21 @@
     color: var(--darkGray);
     margin-top: 20px;
 }
+
+.product .colorBtn:hover{
+    border: 1px solid #3027ae;
+    background: transparent;
+    color: #3027ae;
+}
+.product .colorBtn::after{
+    display: none;
+}
+.product .colorBtn{
+    background-color: #3027ae;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}

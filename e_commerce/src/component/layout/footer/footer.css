@@ -4,6 +4,7 @@
     padding: 100px 0 50px 0;
     background: linear-gradient(to left, #635dc0, #3027ae);
     position: relative;
+    z-index: -1;
 }
 .footer::before {
     content: "";

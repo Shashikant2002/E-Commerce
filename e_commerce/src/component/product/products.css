@@ -1,0 +1,12 @@
+.products{
+    padding: 0px 0;
+}
+.products .container{
+    text-align: center;
+}
+.products .container h1{
+    margin-bottom: 20px;
+}
+.products .banner{
+    height: 90vh;
+}

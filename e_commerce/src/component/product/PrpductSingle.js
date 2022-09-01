@@ -48,19 +48,19 @@ const PrpductSingle = () => {
     setQuen(quen + 1);
   };
   const onchangeHandle = (e) => {
-    setQuen(Number(e.target.value))
-  }
+    setQuen(Number(e.target.value));
+  };
 
   const dispatch = useDispatch();
   const { id } = useParams();
   const { product, loading, error } = useSelector(
     (state) => state.productDetail
   );
-  console.log(error);
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch, id]);
-
+  
+  console.log(error);
   return (
     <>
       {/* <Alert show={alert} error={error} /> */}
@@ -78,7 +78,6 @@ const PrpductSingle = () => {
                 >
                   {product.image &&
                     product.image.map((item, i) => (
-                      // <img key={i} src={process.env.PUBLIC_URL+ item.url} alt={`${i+1} Slides`} />
                       <img
                         className="img"
                         key={i}
@@ -98,7 +97,12 @@ const PrpductSingle = () => {
                 <h1>${product.price}</h1>
                 <div className="quen">
                   <button onClick={decQuen}>-</button>
-                  <input onChange={onchangeHandle} value={quen} type="number" name="quentity" />
+                  <input
+                    onChange={onchangeHandle}
+                    value={quen}
+                    type="number"
+                    name="quentity"
+                  />
                   <button onClick={incQuen}>+</button>
                 </div>
                 <button className="button">Add To Card</button>
@@ -116,13 +120,15 @@ const PrpductSingle = () => {
         </>
       )}
       <div className="reviews">
-          <h1>Product Reviews</h1>
-        <div className="review">
-          {
-            product.reviews && product.reviews[0] ? (
-              product.reviews.map((review) => <ReviewCard review = {review} />)
-            ) :  <p>No Reviews Added</p>
-          }
+        <h1>Product Reviews</h1>
+        <div className="reviewContent">
+          {product.reviews && product.reviews[0] ? (
+            product.reviews.map((review) => (
+              <ReviewCard key={review._id} review={review} />
+            ))
+          ) : (
+            <p>No Reviews Added</p>
+          )}
         </div>
       </div>
     </>

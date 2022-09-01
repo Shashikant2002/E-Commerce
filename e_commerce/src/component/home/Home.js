@@ -6,6 +6,7 @@ import MetaData from "../layout/MetaData";
 import { getProduct } from "../../actions/priductAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../layout/loading/Loading";
+import ColorBtn from "../smallComp/ColorBtn";
 // import Alert from "../layout/alert/Alert";
 
 const Home = () => {
@@ -55,6 +56,7 @@ const Home = () => {
                     <Product key={product._id} product={product} />
                   ))}
               </div>
+              <ColorBtn name="Show More" path="/product" />
             </div>
           </div>
         </>

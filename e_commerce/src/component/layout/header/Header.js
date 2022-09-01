@@ -1,6 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import ColorBtn from "../../smallComp/ColorBtn";
 import "./header.css";
+import { ImSearch } from 'react-icons/im';
+import { BsCartCheck } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
 
 const Header = () => {
   const close = () => {
@@ -9,6 +13,15 @@ const Header = () => {
 
     const navbar = document.querySelector(".navbar");
     navbar.classList.toggle("mainHeaderActive");
+  };
+
+  const closeMenu = () => {
+    console.log("hell")
+    const burger = document.getElementById("burger");
+    burger.classList.remove("close");
+
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.remove("mainHeaderActive");
   };
 
   return (
@@ -25,14 +38,18 @@ const Header = () => {
           <img src={process.env.PUBLIC_URL + "/assets/img/logo.png"} alt="" />
         </div>
         <div className="link1">
-          <ColorBtn name="Home" path="/" />
-          <ColorBtn name="About" path="/about" />
+          <ColorBtn closeMenu = {closeMenu} name="Home" path="/" />
+          <ColorBtn closeMenu = {closeMenu} name="Products" path="/product" />
         </div>
         <div className="link2">
-          <ColorBtn name="Services" path="/services" />
-          <ColorBtn name="About Us" path="/about" />
+          <ColorBtn closeMenu = {closeMenu} name="Services" path="/services" />
+          <ColorBtn closeMenu = {closeMenu} name="About Us" path="/about" />
         </div>
-        <div className="link3">fsdf</div>
+        <div className="link3">
+          <NavLink onClick={closeMenu} to='/search'><ImSearch /></NavLink>
+          <NavLink onClick={closeMenu} to='/'><BsCartCheck /></NavLink>
+          <NavLink onClick={closeMenu} to='/'><CgProfile /></NavLink>
+        </div>
       </div>
     </div>
   );

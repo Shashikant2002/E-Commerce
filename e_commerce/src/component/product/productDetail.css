@@ -33,7 +33,7 @@
     background: #635dc0;
 }
 
-.review {
+.productDetails .review {
     display: flex;
     align-items: center;
 }
@@ -84,11 +84,40 @@
     text-align: center;
     width: 100%;
 }
+.reviewStar{
+    display: flex;
+    justify-content: center;
+}
+.reviewContent{
+    margin-top: 20px;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.review >p{
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
 .reviews{
     width: 100%;
     float: left;
-    padding: 50px;
+    padding: 0 0 50px 0;
     text-align: center;
+    /* border: 1px solid red; */
+}
+.reviewMain{
+    border-radius: 5px;
+    border: 1px solid rgba(139, 139, 139, 0.471);
+    margin: 20px 10px 0 10px;
+    text-align: center;
+    padding: 50px 10px;
+    width: 100%;
+    max-width: 300px;
+}
+.reviewMain p{
+    margin-top: 10px;
 }
 
 @media (max-width: 425px) {
