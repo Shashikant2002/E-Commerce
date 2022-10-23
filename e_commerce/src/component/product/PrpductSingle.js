@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./productDetail.css";
-import { useParams } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +7,8 @@ import { getProductDetails } from "../../actions/priductAction";
 import Loading from "../layout/loading/Loading";
 import ReactStart from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard.js";
+import Alert from "../layout/alert/Alert";
+import { useParams } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -59,11 +60,12 @@ const PrpductSingle = () => {
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch, id]);
+
+  // console.log(product)
   
-  console.log(error);
   return (
     <>
-      {/* <Alert show={alert} error={error} /> */}
+      <Alert show={error} error={error} />
       {loading ? (
         <Loading />
       ) : (

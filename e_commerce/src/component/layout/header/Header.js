@@ -16,7 +16,6 @@ const Header = () => {
   };
 
   const closeMenu = () => {
-    console.log("hell")
     const burger = document.getElementById("burger");
     burger.classList.remove("close");
 
@@ -39,7 +38,7 @@ const Header = () => {
         </div>
         <div className="link1">
           <ColorBtn closeMenu = {closeMenu} name="Home" path="/" />
-          <ColorBtn closeMenu = {closeMenu} name="Products" path="/product" />
+          <ColorBtn closeMenu = {closeMenu} name="Products" path="/products" />
         </div>
         <div className="link2">
           <ColorBtn closeMenu = {closeMenu} name="Services" path="/services" />

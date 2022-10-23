@@ -14,7 +14,7 @@ const Products= ({ product }) => {
   return (
     <>
       <Link className="productCard" to={`/product/${product._id}`}>
-        <img src={`${process.env.PUBLIC_URL}${product.image[0].url}`} alt={product.name} />
+        <img src={`${process.env.PUBLIC_URL}/${product.image[0].url}`} alt={product.name} />
         <h3>{product.name}</h3>
         <div className="review">
           <ReactStart {...options} value = {product.ratings} />

@@ -16,24 +16,30 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 // get All Product
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   // return next(new ErrorHandeler("Product Not Found", 500));
-  const resultPerPage = 9;
-  const productCount = await Product.countDocuments();
+  const resultPerPage = 6;
+  let productCount = await Product.countDocuments();
+
   const apiFeatures = new ApiFeatures(Product.find(), req.query)
     .search()
     .filter()
     .pagination(resultPerPage);
-  const allProd = await apiFeatures.query;
+
+  let product = await apiFeatures.query;
+  let filteredProduct = product.length;
+
   res.status(200).json({
     success: true,
-    allProd,
+    product,
     productCount,
+    resultPerPage,
+    filteredProduct,
   });
 });
 
 // get Single Product
 exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
+  // return next(new ErrorHandeler("Product Not Found", 500));
   let product = await Product.findById(req.params.id);
-  const productCount = await Product.countDocuments();
   if (!product) {
     return next(new ErrorHandeler("Product Not Found", 404));
   }

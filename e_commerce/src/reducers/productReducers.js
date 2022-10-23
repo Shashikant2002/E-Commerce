@@ -2,11 +2,9 @@ import {
   ALL_RPODUCT_REQUEST,
   ALL_RPODUCT_SUCCESS,
   ALL_RPODUCT_FAIL,
-
   ALL_DETAILS_REQUEST,
   ALL_DETAILS_FAIL,
   ALL_DETAILS_SUCCESS,
-
   CLEAR_ERRORS,
 } from "../constants/productConstants";
 
@@ -17,13 +15,18 @@ export const productReducer = (state = { products: [] }, action) => {
         loading: true,
         products: [],
         productsCount: 0,
+        error: false,
       };
-
-    case ALL_RPODUCT_SUCCESS:
+      
+      case ALL_RPODUCT_SUCCESS:
+      console.log("request");
       return {
         loading: false,
-        products: action.payload.allProd,
+        products: action.payload.product,
         productsCount: action.payload.productCount,
+        resultPerPage: action.payload.resultPerPage,
+        filteredProduct: action.payload.filteredProduct,
+        error: false,
       };
 
     case ALL_RPODUCT_FAIL:
@@ -56,13 +59,14 @@ export const productDetailReducer = (state = { product: {} }, action) => {
     case ALL_DETAILS_SUCCESS:
       return {
         loading: false,
-        product: action.payload
+        product: action.payload,
       };
 
     case ALL_DETAILS_FAIL:
       return {
         loading: false,
         error: action.payload,
+        product: {},
       };
 
     case CLEAR_ERRORS:

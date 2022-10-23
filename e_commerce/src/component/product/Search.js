@@ -8,11 +8,11 @@ const Search = () => {
 
   const searchSubmitHandeler = (e) => {
     e.preventDefault();
-    if (keyword.trim()) {
-      navigate(`/product/${keyword}`);
+    if (keyword.trim()) { 
+      navigate(`/products/${keyword}`); 
     } else {
-      navigate("/product");
-    }
+      navigate("/products"); 
+    } 
   };
 
   return (

@@ -20,12 +20,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header /> 
+        <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<PrpductSingle />} />
-          <Route path="/product" element={<Prpducts />} />
-          <Route path="/search" element={<Search />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/product/:id" element={<PrpductSingle />} />
+          <Route exact path="/products" element={<Prpducts />} />
+          <Route path="/products/:keyword" element={<Prpducts />} />
+          <Route exact path="/search" element={<Search />} />
         </Routes>
         <Footer />
       </BrowserRouter>

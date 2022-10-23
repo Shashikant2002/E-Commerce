@@ -1,12 +1,127 @@
-.products{
+.products {
     padding: 0px 0;
 }
-.products .container{
+
+.products .container {
     text-align: center;
+    /* display: flex; */
 }
-.products .container h1{
+
+.products .container h1 {
     margin-bottom: 20px;
 }
-.products .banner{
+
+.products .banner {
     height: 90vh;
+}
+
+.pagenation {
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.pagenation ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: linear-gradient(to right, #635dc0, #3027ae);
+    padding: 15px 0;
+    border-radius: 10px;
+}
+
+.pagenation ul li {
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    margin: 0 10px;
+    transition: .5s;
+    border-radius: 5px;
+}
+.filterBox .separater{
+    margin: 0 10px;
+}
+.pagenation ul li a {
+    color: #fff;
+}
+
+.pagenation ul li:hover {
+    border: 1px solid #fff;
+}
+
+.pagenation .pageItemActive {
+    border: 1px solid #fff;
+}
+
+.filterBox {
+    width: 300px;
+    padding: 20px 10px;
+    margin: 0 auto;
+}
+
+
+.price-input {
+    margin: 30px 0 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price-input .field h2 {
+    width: 100px;
+    text-align: center;
+    outline: none;
+    padding: 5px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.price-input .field {
+    justify-content: center;
+    display: flex;
+}
+
+.field span {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.filterBox .slider {
+    background: #cdcbe9;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    height: 30px;
+    position: relative;
+}
+
+.filterBox .slider .process {
+    height: 2px;
+    background: rgb(45, 45, 45);
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    display: none;
+}
+
+.range-input {
+    position: relative;
+}
+
+.range-input input {
+    position: absolute;
+    bottom: -7px;
+    width: 100%;
+    left: 0;
+    background: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+}
+
+.range-input input[type="range"]::-webkit-slider-thumb {
+    height: 17px;
+    pointer-events: auto;
+    width: 17px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    background: linear-gradient(to left, #635dc0, #3027ae);
 }
